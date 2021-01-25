@@ -1,0 +1,207 @@
+<form id="LIBRARY" name="LIBRARY" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+	<meta http-equiv="refresh" content="30">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Digital Repository</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="ikcdigirepo.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script language="javascript">
+setTimeout(function(){
+   window.location.reload(1);
+}, 30000);
+</script>
+
+
+</head>
+<body>
+
+<div class="header" >
+<img src="IMAGES/ikc_logo2.png">
+ <br><br><h1 >DIGITAL REPOSITORY </h1>
+
+</div >
+
+<div class="navi">
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  
+	<li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Downloads</a>
+    <div class="dropdown-content">
+      <a href="#">Project Doc Format</a>
+      <a href="#">Assignment Format</a>
+      <a href="#">Industrial Visit Doc</a>
+       <a href="#">Synopsis Doc</a>
+        <a href="#">Placement Rules/Registration</a>
+    </div>
+  </li>
+	<li><a href="#">Notice</a></li>
+	<li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Students List</a>
+    <div class="dropdown-content">
+      <a href="#">Session 2017-2020</a>
+      <a href="#">Session 2018-2021</a>
+      <a href="#">Session 2019-2022</a>
+      
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Syllabus</a>
+    <div class="dropdown-content">
+      <a href="#">1<sup>st</sup> Year</a>
+      <a href="#">2<sup>nd</sup> Year</a>
+      <a href="#">3<sup>rd</sup> Year</a>
+      
+    </div>
+  </li>
+
+</li>
+</ul>
+
+</div>
+
+<div class="photo_gallery">
+
+
+
+  <h2>PHOTO GALLERY</h2><br>
+
+<select name="department" id="department">
+<option selected="selected" disabled="disabled">PLEASE CHOOSE DEPARTMENT</option>
+<option value="BCA">BCA</option>
+
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;	
+<input type="checkbox" name="SAMPLES_QUESTIONS" value="SAMPLES_QUESTIONS" style=color:"white"; ><font color=purple>SAMPLES QUESTIONS</font>
+
+<input type="checkbox" name="SESSIONALS" value="SESSIONALS"><font color=purple>SESSIONAL QUESTIONS</font>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" name="search" id="search" value="SEARCH" />
+<br>
+<br>
+<center>
+<op>
+<table width="700" border=1 text-color="white"  >
+	
+	<tr bgcolor="grey">
+	<td width="10%" align="center"><b><font color="white">Serial No.</font></b></td>
+	<td align="center" ><b><font color="white"><text-color="red"> Result </font></b></td>
+	</tr>
+	
+<?php
+
+if (isset($_POST['search'])){
+	if(isset($_POST['department'])){
+		$dir    = 'DEPARTMENT/';
+		$dir    = $dir . $_POST['department'].'/' ;
+		$count= 1 ;
+		if(isset($_POST['SESSIONALS'])){
+			$dir1 = $dir . $_POST['SESSIONALS'];
+			$files1 = scandir($dir1);
+			foreach($files1 as $file)
+			{
+				if($file !='.' && $file !='..'){  
+    			echo '<tr  ><td  width="10%" align="center" >' . $count . '</font></td><td><a href="' . $dir1 .'/'. $file .'" target="_blank" >' . $file . '</td></tr>';
+    			$count = $count + 1 ;
+    			}
+		}	}		
+		
+		 
+                if(isset($_POST['SAMPLES_QUESTIONS'])){
+			$dir2 = $dir . $_POST['SAMPLES_QUESTIONS'];
+			$files1 = scandir($dir2);
+			foreach($files1 as $file)
+			{
+				if($file !='.' && $file !='..'){  
+    			echo '<tr textcolor="grey"><td  width="10%" align="center"  >' . $count . '</td><td><a href="' . $dir2 .'/'. $file .'" target="_blank" >' . $file . '</td></tr>';
+    			$count = $count + 1 ;
+    			}
+			}	
+			
+		}
+		
+	
+	}
+	
+}
+?>
+<op>
+</center>
+
+
+
+
+
+<br><br><br><br><br>
+</div>
+<div class="div_table">
+
+<div class="add">
+<table>
+
+<tr>
+<td class=add_part1">
+<h5>Follow us On :</h5><br>
+<img src="IMAGES/fb.png" style="height:10%; width:10%">&nbsp;
+<img src="IMAGES/tw.jpeg" style="height:10%; width:10%"> &nbsp;<img src="IMAGES/lkdn.jpeg" style="height:10%; width:10%">&nbsp;<img src="IMAGES/gp.png" style="height:10%; width:10%">
+<br>
+Location:
+
+</td>
+
+
+<td  class=add_part2">
+<h4>Quick Links</h4>
+<ul > 
+<li>ONLINE
+	<ul >
+		<li>Admission</li>
+  		<li>Examination</li>
+	</ul>
+</li>
+<li>CAREER</li> 
+  <li>EVENT</li> 
+  <li>DOWNLOAD</li> 
+  
+</ul> 
+  
+
+</td>
+
+
+<td  class=add_part3">
+<br>
+<h4>Contact Us</h4>
+<br>
+Inspiria Knowledge Campus <br> Bachelor of Computer Application<br> 1st Floor<br>Matigara, Phase – II, Himachal Vihar<br>Siliguri, West Bengal <br>Pin:734010
+
+</td>
+
+
+<td  class=add_part4">
+<h4>Download Our App</h4>
+<br>
+<img src="IMAGES/pstore.png" style="height:30%; width:100%;">
+
+</td>
+
+</tr>
+
+
+
+</table>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+<div class="footer">
+<p> Copyright &copy 2019 Department of Computer Application | All Rights Reserved.Privacy Policy | Powered by BCA
+</div>
+
+</body>
+</html>
